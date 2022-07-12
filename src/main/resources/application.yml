@@ -1,0 +1,31 @@
+server:
+  port: 9090
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sso_test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: aspyn2021
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
+  ## 운영 접속시 다시 한번 생각하기
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: create
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
